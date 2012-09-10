@@ -1,0 +1,37 @@
+{
+	"name": "SpaceGameExample",
+	"description": "Space Game Public Example Site",
+	"version": "0.0.1",
+	"homepage": "https://github.com/bstarbird/Space-Game",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/bstarbird/Space-Game"
+	},
+	"main":"",
+	"author": "",
+	"directories": {
+		"lib": "./lib",
+		"configuration": "./configuration",
+		"models": "./models",
+		"controllers": "./controllers",
+		"views": "./views",
+		"public": "./public",
+		"scripts": "./scripts",
+		"utils": "./utils",
+		"tests": "./tests"
+	},
+	"dependencies" : { 
+		"express": "2.x",
+		"connect" : ">=1.8.6",
+		"coffeekup" : ">=0.3.1",
+		"socket.io" : ">=0.9.1",
+		"mocha" : ">=0.14.1",
+		"should" : ">=0.6.0",
+		"async" : ">=0.1.18",
+		"nodey" : ">=0.0.1"
+	},
+	"engines": {
+		"node": ">=0.6.10",
+		"npm":  ">=1.1.0"
+	}
+}
