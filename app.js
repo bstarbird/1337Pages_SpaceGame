@@ -96,7 +96,7 @@ var bootstrapPartialViews = function(renderer, callback){
 			callback(err)
 			return;
 		}
-		bootstrapper.boot(renderer, path + '\\views', function(err){
+		bootstrapper.boot(renderer, path + '/views', function(err){
 			callback(err)
 		});
 	})

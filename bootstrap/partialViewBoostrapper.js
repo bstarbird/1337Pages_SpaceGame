@@ -7,7 +7,7 @@ module.exports.boot = function(renderingEngine, startPath, callback) {
 }
 
 var loadFolder = function(renderingEngine, path, item, callback){
-		var fileName = path + "\\" + item;
+		var fileName = path + "/" + item;
 
 		fs.stat(fileName, function(err, stats){
 			if(err){
