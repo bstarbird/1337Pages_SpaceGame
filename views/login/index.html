@@ -1,0 +1,16 @@
+<h2>{{loginHeader}}</h2>
+{{#if error}}<div>{{error}}</div>{{/if}}
+<form action="/login" method="post">
+	<div>
+		<label for="Email">{{emailFieldName}}</label>
+		<input id="Email" name="email" value="{{email}}"></input>
+	</div>
+	<div>
+		<label for="Password">{{passwordFieldName}}</label>
+		<input type="password" id="Password" name="password"></input>
+	</div>
+	<div>
+		<button>{{loginHeader}}</button>
+	<div>
+</form>
+<p>{{createText}} <a href="/account">{{createLink}}</a></p>

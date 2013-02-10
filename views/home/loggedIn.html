@@ -1,0 +1,20 @@
+<script src="/script/facilities/facilities.js"></script>
+<h2>Overview</h2>
+{{#if error}}
+	<div>{{error}}</div>
+{{/if}}
+<ul>
+{{#each objects}}
+		<li data-objectId="{{this._id}}">{{this.name}}
+		<ul>
+		{{#each this.facilities}}
+			<li>{{this.name}}</li>
+		{{/each}}
+			<button class="buildFacility">Build Facility</button>
+		</ul>
+{{/each}}
+</ul>
+
+<script>
+	new FacilityController().init();
+</script>

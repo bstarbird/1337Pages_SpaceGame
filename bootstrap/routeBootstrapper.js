@@ -1,6 +1,6 @@
 var typeResolver;
 
-module.exports.boot = function(app, resolutionFunction) {
+module.exports.boot = function(app, resolutionFunction, callback) {
 	typeResolver = resolutionFunction;
 	app.get("/:controller?", router);	// Index
 
@@ -11,7 +11,9 @@ module.exports.boot = function(app, resolutionFunction) {
 	
 	app.get("/:controller/:action?/:id", router);	// Show/edit
 	app.put("/:controller/:id", router);			// Update
-	app.del("/:controller/:id", router);			// Delete	
+	app.del("/:controller/:id", router);			// Delete
+	
+	callback();
 }
 
 function router(req, res, next) {

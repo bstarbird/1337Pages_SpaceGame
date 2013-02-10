@@ -1,0 +1,19 @@
+<h2>Create Account</h2>
+{{#if error}}<div>{{error}}</div>{{/if}}
+<form action="/account" method="post">
+	<div>
+		<label for="Name">Name</label>
+		<input id="Name" name="name" value="{{name}}"></input>
+	</div>
+	<div>
+		<label for="Email">Email</label>
+		<input id="Email" name="email" value="{{email}}"></input>
+	</div>
+	<div>
+		<label for="Password">Password</label>
+		<input type="password" id="Password" name="password"></input>
+	</div>
+	<div>
+		<button>Create account</button>
+	<div>
+</form>

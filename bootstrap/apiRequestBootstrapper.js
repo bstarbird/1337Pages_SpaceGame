@@ -33,7 +33,9 @@ module.exports.boot = function (app, callback){
 	});
 
 	req.on('error', function(e) {
-		console.log('problem with request: ' + e.message);
+		var msg = 'Problem with request: ' + e.message
+		console.log(msg);
+		callback(msg)
 	});
 
 	req.end();
@@ -150,7 +152,6 @@ Service.prototype.getRequest = function(serviceRequest, command, callback){
 }
 
 Service.prototype.postRequest = function(serviceRequest, command, callback){
-	
 	var options = {
 		host: this.url,
 		port: this.port,
@@ -158,7 +159,7 @@ Service.prototype.postRequest = function(serviceRequest, command, callback){
 		method: 'POST',
 		headers: {'content-type' : 'application/json'}
 	};
-	
+
 	//Logger.log([command, serviceRequest], Logger.info, Logger.development)
 
 	var req = http.request(options, function(res) {
@@ -176,11 +177,18 @@ Service.prototype.postRequest = function(serviceRequest, command, callback){
 			catch(err){
 				callback("Error parsing data: " + data);
 			}
+
 			if(parsedData.success)
 				callback(null, parsedData);
 			else
 				callback(condenseErrors(parsedData.error), parsedData);
 		});
+	});
+	
+	req.on('error', function(e) {
+		var msg = 'Problem with request: ' + e.message;
+		console.log(msg);
+		callback(msg)
 	});
 	
 	req.write(JSON.stringify(serviceRequest));
