@@ -23,7 +23,6 @@ var reIndexFacilitiesBasedOnType = function (facilities){
 	}, []);
 }
 
-
 module.exports.build = function(token, objectId, facilityTypeId, callback){
 	Remote.facility.build({token: token, facilityTypeId: facilityTypeId, objectId: objectId}, function(err, data){
 		if(err){
@@ -33,4 +32,15 @@ module.exports.build = function(token, objectId, facilityTypeId, callback){
 		
 		callback(null, data);
 	})
+}
+
+module.exports.availableFacilitiesForObject = function (objectId, callback){
+	Remote.facility.list({objectId : objectId}, function(err, data){
+		if(err){
+			callback(err);
+			return;
+		}
+		
+		callback(null, data.facilities);
+	});
 }

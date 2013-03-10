@@ -177,7 +177,10 @@ Service.prototype.postRequest = function(serviceRequest, command, callback){
 			catch(err){
 				callback("Error parsing data: " + data);
 			}
-
+			if(!parsedData){
+				callback("Unable to parse " + data)
+			}
+			
 			if(parsedData.success)
 				callback(null, parsedData);
 			else

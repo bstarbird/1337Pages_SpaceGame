@@ -1,0 +1,9 @@
+<input type="hidden" value="{{objectId}}" id="ObjectId">
+{{#each availableFacilities}}
+<div>
+	<input type="radio" name="facilityId" id="{{this.type}}" value="{{this.type}}"/>
+	<label for="{{this.type}}">{{this.name}}</label>
+</div>
+{{/each}}
+
+<button class="completeBuildFacility">Build Facility</button>
